@@ -13,6 +13,7 @@
         <td>{{ $item->singkatan }}</td>
         <td>{{ $item->dekan }}</td>
         <td>{{ $item->wakil_dekan }}</td>
+        <td>{{ $item->fakultas->nama }}</td>
     </tr>
 @endforeach
 </table>
