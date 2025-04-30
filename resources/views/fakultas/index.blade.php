@@ -7,13 +7,13 @@
         <th>Dekan</th>
         <th>Wakil Dekan</th>
     </tr>
-@foreach ($fakultas as $item)
+
+    @foreach ($fakultas as $item)
     <tr>
         <td>{{ $item->nama }}</td>
         <td>{{ $item->singkatan }}</td>
         <td>{{ $item->dekan }}</td>
         <td>{{ $item->wakil_dekan }}</td>
-        <td>{{ $item->fakultas->nama }}</td>
     </tr>
-@endforeach
+    @endforeach
 </table>

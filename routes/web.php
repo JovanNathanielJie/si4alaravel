@@ -12,6 +12,5 @@ Route::get('/profil', function () {
     return view('profil');
 });
 
-Route::resource('/fakultas', FakultasController::class);
-
-Route::resource('/prodi', ProdiController::class);
+Route::resource('/fakultas', FakultasController::class); 
+Route::resource('/prodi', ProdiController::class); // menambahkan route resource prodi
