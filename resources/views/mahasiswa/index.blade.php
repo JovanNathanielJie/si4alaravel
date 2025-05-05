@@ -14,7 +14,7 @@
     <tr> 
         <td>{{ $item->npm }}</td>
         <td>{{ $item->nama}}</td>
-        <td>{{ $item->jk}}</td>
+        <td>{{ $item->jenis_kelamin}}</td>
         <td>{{ $item->tanggal_lahir}}</td>
         <td>{{ $item->tempat_lahir}}</td>
         <td>{{ $item->asal_sma}}</td>
