@@ -1,5 +1,8 @@
+@extends('layout.main')
+
+@section('content')
 <h1>Program Studi</h1>
- 
+
 <table>
     <tr>
         <th>Nama</th>
@@ -9,7 +12,7 @@
         <th>Fakultas</th>
     </tr>
     @foreach ($prodi as $item)
-    <tr> 
+    <tr>
         <td>{{ $item->nama }}</td>
         <td>{{ $item->singkatan}}</td>
         <td>{{ $item->kaprodi}}</td>
@@ -18,3 +21,4 @@
     </tr>
     @endforeach
 </table>
+@endsection
