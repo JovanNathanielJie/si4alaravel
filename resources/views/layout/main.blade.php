@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Universitas MDP</h1>
+    <a href="{{ route('fakultas.index') }}">Fakultas</a> |
+    <a href="{{ route('prodi.index') }}">Prodi</a> |
+    <a href="{{ route('mahasiswa.index') }}">Mahasiswa</a>
     @yield('content')
     &copy; 2025
 </body>
