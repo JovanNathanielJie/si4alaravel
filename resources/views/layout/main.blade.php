@@ -7,6 +7,8 @@
     <title>Laravel</title>
 </head>
 <body>
-    
+    <h1>Universitas MDP</h1>
+    @yield('content')
+    &copy; 2025
 </body>
 </html>

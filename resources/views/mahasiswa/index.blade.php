@@ -1,5 +1,8 @@
+@extends('layout.main')
+
+@section('content')
 <h1>Mahasiswa</h1>
- 
+
 <table>
     <tr>
         <th>NPM</th>
@@ -12,7 +15,7 @@
         <th>Foto</th>
     </tr>
     @foreach ($mahasiswa as $item)
-    <tr> 
+    <tr>
         <td>{{ $item->npm }}</td>
         <td>{{ $item->nama}}</td>
         <td>{{ $item->jenis_kelamin}}</td>
@@ -24,3 +27,4 @@
     </tr>
     @endforeach
 </table>
+@endsection
