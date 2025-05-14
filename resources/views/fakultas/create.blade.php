@@ -7,7 +7,7 @@
     <div class="col-12">
         <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Tambah Fakultas</div></div>
+                  <div class="card-header"><div class="card-title"><b>Tambah Fakultas</b></div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
                   <form>
@@ -20,6 +20,14 @@
                       <div class="mb-3">
                         <label for="Singkatan" class="form-label">Singkatan</label>
                         <input type="text" class="form-control" name="singkatan">
+                      </div>
+                      <div class="mb-3">
+                        <label for="Dekan" class="form-label">Dekan</label>
+                        <input type="text" class="form-control" name="dekan">
+                      </div>
+                      <div class="mb-3">
+                        <label for="Wakil Dekan" class="form-label">Wakil Dekan</label>
+                        <input type="text" class="form-control" name="wakil_dekan">
                       </div>
                     </div>
                     <!--end::Body-->
