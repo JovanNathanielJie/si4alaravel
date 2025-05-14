@@ -317,7 +317,7 @@
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('prodi')}}'>
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>prodi</p>
+                  <p>Prodi</p>
                 </a>
               </li>
               <li class="nav-item">

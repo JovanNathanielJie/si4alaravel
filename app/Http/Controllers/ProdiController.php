@@ -13,9 +13,9 @@ class ProdiController extends Controller
     public function index()
     {
         // panggil model prodi menggunakan eloquent
-        $prodi = Prodi::all(); // perintah sql select * from prodi 
+        $prodi = Prodi::all(); // perintah sql select * from prodi
         // dd($prodi); // dump and die
-        return view('prodi.index')->with('prodi', $prodi);  
+        return view('prodi.index')->with('prodi', $prodi);
     }
 
     /**

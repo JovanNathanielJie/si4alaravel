@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','Fakultas')
+@section('title','Prodi')
 
 @section('content')
 <!--begin::Row-->
@@ -7,15 +7,15 @@
     <div class="col-12">
         <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title"><b>Tambah Fakultas</b></div></div>
+                  <div class="card-header"><div class="card-title"><b>Tambah Prodi</b></div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ route('fakultas.store') }}" method="POST">
+                  <form action="{{ route('prodi.store') }}" method="POST">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Fakultas</label>
+                        <label for="nama" class="form-label">Nama Prodi</label>
                         <input type="text" class="form-control" name="nama" value="{{ old('nama') }}">
                         @error('nama')
                         <div class="text-danger">{{ $message }}</div>
@@ -29,16 +29,16 @@
                         @enderror
                       </div>
                       <div class="mb-3">
-                        <label for="dekan" class="form-label">Nama Dekan</label>
-                        <input type="text" class="form-control" name="dekan" value="{{ old('dekan') }}">
-                        @error('dekan')
+                        <label for="kaprodi" class="form-label">Nama Kaprodi</label>
+                        <input type="text" class="form-control" name="kaprodi" value="{{ old('dekan') }}">
+                        @error('kaprodi')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="mb-3">
-                        <label for="wakil_dekan" class="form-label">Nama Wakil Dekan</label>
-                        <input type="text" class="form-control" name="wakil_dekan" value="{{ old('wakil_dekan') }}">
-                        @error('wakil_dekan')
+                        <label for="sekretaris" class="form-label">Nama Sekretaris</label>
+                        <input type="text" class="form-control" name="sekretaris" value="{{ old('wakil_dekan') }}">
+                        @error('sekretaris')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                       </div>
