@@ -22,11 +22,11 @@
                         <input type="text" class="form-control" name="singkatan">
                       </div>
                       <div class="mb-3">
-                        <label for="Dekan" class="form-label">Dekan</label>
+                        <label for="dekan" class="form-label">Nama Dekan</label>
                         <input type="text" class="form-control" name="dekan">
                       </div>
                       <div class="mb-3">
-                        <label for="Wakil Dekan" class="form-label">Wakil Dekan</label>
+                        <label for="wakil_dekan" class="form-label">Nama Wakil Dekan</label>
                         <input type="text" class="form-control" name="wakil_dekan">
                       </div>
                     </div>
