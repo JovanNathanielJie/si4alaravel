@@ -11,6 +11,7 @@
                   <!--end::Header-->
                   <!--begin::Form-->
                   <form action="{{ route('fakultas.store') }}" method="POST">
+                    @csrf
                     <!--begin::Body-->
                     <div class="card-body">
                       <div class="mb-3">
