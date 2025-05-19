@@ -42,7 +42,6 @@ class MahasiswaController extends Controller
             'tempat_lahir' => 'required',
             'asal_sma' => 'required',
             'prodi_id' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // simpan data ke tabel mahasiswa

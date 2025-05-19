@@ -29,11 +29,8 @@
                       </div>
                         <div class="mb-3">
                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                            <select class="form-control" name="jenis_kelamin" value="{{ old('jenis_kelamin') }}">
-                                <option value="">--Pilih Jenis Kelamin--</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
+                            <input type="radio" name="jenis_kelamin" value="L" {{ old('jenis_kelamin') == 'L' ? 'checked' : '' }}> Laki-laki
+                            <input type="radio" name="jenis_kelamin" value="P" {{ old('jenis_kelamin') == 'P' ? 'checked' : '' }}> Perempuan
                             @error('jenis_kelamin')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -69,13 +66,6 @@
                                   @error('prodi_id')
                                   <div class="text-danger">{{ $message }}</div>
                                   @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input type="file" class="form-control" name="foto" value="{{ old('foto') }}">
-                            @error('foto')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                     </div>
                     <!--end::Body-->
