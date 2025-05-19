@@ -35,18 +35,18 @@ class ProdiController extends Controller
     {
         // validasi input
         $input = $request->validate([
-            'nama' => 'required|unique:fakultas',
+            'nama' => 'required|unique:prodi',
             'singkatan' => 'required|max:5',
             'kaprodi' => 'required',
             'sekretaris' => 'required',
-            'fakultas_id' => 'required|exists:fakultas,id',
+            'fakultas_id' => 'required',
         ]);
 
         // simpan data ke tabel prodi
         Prodi::create($input);
 
         // redirect ke route prodi.index
-        return redirect()->route('prodi.index')->with('success', 'Prodi berhasil ditambahkan.');
+        return redirect()->route('prodi.index')->with('success', 'Program Studi berhasil ditambahkan.');
 
     }
 
