@@ -56,7 +56,7 @@
                 @endforeach
             </table>
         </div>
-        <!-- /.card-body -->
+        <!-- /.card-body --> 
       </div>
       <!-- /.card -->
     </div>
