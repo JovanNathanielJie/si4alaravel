@@ -44,6 +44,17 @@ class MahasiswaController extends Controller
             'prodi_id' => 'required',
             'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+        // jika ada file foto yang diupload
+        if ($request->hasFile('foto')) {
+            // ambil file foto
+            $file = $request->file('foto');
+            // buat nama file unik, agar nama foto tidak ada yang sama
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // simpan file foto ke folder public/foto
+            $file->move(public_path('foto'), $filename);
+            // simpan nama file baru ke database
+            $input['foto'] = $filename;
+        }
 
         // simpan data ke tabel mahasiswa
         Mahasiswa::create($input);
