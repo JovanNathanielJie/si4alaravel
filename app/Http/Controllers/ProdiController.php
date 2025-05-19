@@ -23,7 +23,7 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        return view('prodi.create');
     }
 
     /**
@@ -31,7 +31,21 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validasi input
+        $input = $request->validate([
+            'nama' => 'required|unique:fakultas',
+            'singkatan' => 'required|max:5',
+            'kaprodi' => 'required',
+            'sekretaris' => 'required',
+            'fakultas_id' => 'required|exists:fakultas,id',
+        ]);
+
+        // simpan data ke tabel prodi
+        Prodi::create($input);
+
+        // redirect ke route prodi.index
+        return redirect()->route('prodi.index')->with('success', 'Prodi berhasil ditambahkan.');
+
     }
 
     /**

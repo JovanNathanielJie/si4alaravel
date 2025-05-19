@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','Prodi')
+@section('title','Program Studi')
 
 @section('content')
 <!--begin::Row-->
@@ -30,14 +30,14 @@
                       </div>
                       <div class="mb-3">
                         <label for="kaprodi" class="form-label">Nama Kaprodi</label>
-                        <input type="text" class="form-control" name="kaprodi" value="{{ old('dekan') }}">
+                        <input type="text" class="form-control" name="kaprodi" value="{{ old('kaprodi') }}">
                         @error('kaprodi')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                       </div>
                       <div class="mb-3">
                         <label for="sekretaris" class="form-label">Nama Sekretaris</label>
-                        <input type="text" class="form-control" name="sekretaris" value="{{ old('wakil_dekan') }}">
+                        <input type="text" class="form-control" name="sekretaris" value="{{ old('sekretaris') }}">
                         @error('sekretaris')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
