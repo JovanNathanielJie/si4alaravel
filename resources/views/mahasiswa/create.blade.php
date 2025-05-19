@@ -10,7 +10,7 @@
                   <div class="card-header"><div class="card-title"><b>Tambah Mahasiswa</b></div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ route('mahasiswa.store') }}" method="POST">
+                  <form action="{{ route('mahasiswa.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--begin::Body-->
                     <div class="card-body">
@@ -66,6 +66,13 @@
                                   @error('prodi_id')
                                   <div class="text-danger">{{ $message }}</div>
                                   @enderror
+                        </div>
+                        <div>
+                            <label for="foto" class="form-label">Foto</label>
+                            <input type="file" class="form-control" name="foto">
+                            @error('foto')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <!--end::Body-->
