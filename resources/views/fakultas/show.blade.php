@@ -30,39 +30,30 @@
           </div>
         </div>
         <div class="card-body">
-          <a href="{{ route('fakultas.create')}}" class="btn btn-primary"> Tambah </a>
-            <br><br><table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
                 <tr>
                     <th>Nama</th>
-                    <th>Singkatan</th>
-                    <th>Dekan</th>
-                    <th>Wakil Dekan</th>
-                    <th>Aksi</th>
+                    <td>{{ $fakultas->nama}}</td>
                 </tr>
-
-                @foreach ($fakultas as $item)
                 <tr>
-                    <td>{{ $item->nama }}</td>
-                    <td>{{ $item->singkatan }}</td>
-                    <td>{{ $item->dekan }}</td>
-                    <td>{{ $item->wakil_dekan }}</td>
-                    <td>
-                        <a href="{{ route('fakultas.show', $item->id) }}" class="btn btn-info">Show</a>
-                        <a href="{{ route('fakultas.edit', $item->id) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('fakultas.destroy', $item->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
+                    <th>Singkatan</th>
+                    <td>{{ $fakultas->singkatan}}</td>
                 </tr>
-                @endforeach
+                <tr>
+                    <th>Dekan</th>
+                    <td>{{ $fakultas->dekan}}</td>
+                </tr>
+                <tr>
+                    <th>Wakil Dekan</th>
+                    <td>{{ $fakultas->wakil_dekan}}</td>
+                </tr>
+                
             </table>
         </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
+        <!-- /.card -->
     </div>
-  </div>
-  <!--end::Row-->
-  @endsection
+</div>
+<!--end::Row-->
+@endsection
+

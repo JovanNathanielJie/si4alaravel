@@ -8,7 +8,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">List Prodi</h3>
+          <h3 class="card-title"><b>List Prodi</b></h3>
           <div class="card-tools">
             <button
               type="button"
@@ -38,6 +38,7 @@
                     <th>Kaprodi</th>
                     <th>Sekretaris</th>
                     <th>Fakultas</th>
+                    <th>Aksi</th>
                 </tr>
                 @foreach ($prodi as $item)
                 <tr>
@@ -46,6 +47,15 @@
                     <td>{{ $item->kaprodi}}</td>
                     <td>{{ $item->sekretaris}}</td>
                     <td>{{ $item->fakultas->nama}}</td>
+                                        <td>
+                        <a href="{{ route('prodi.show', $item->id) }}" class="btn btn-info">Show</a>
+                        <a href="{{ route('prodi.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('prodi.destroy', $item->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </table>
