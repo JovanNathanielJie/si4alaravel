@@ -61,7 +61,7 @@
                 </tr>
                 <tr>
                     <th>Foto</th>
-                    <td><img src="foto/{{ $mahasiswa->foto}}" width="80px"></td>
+                    <td><img src="{{ asset('foto/'.$mahasiswa->foto)}}" class="img-fluid" width="80px"></td>
                 </tr>
             </table>
         </div>
