@@ -51,12 +51,12 @@
                     <td>{{ $item->tempat_lahir}}</td>
                     <td>{{ $item->asal_sma}}</td>
                     <td>{{ $item->prodi->nama}}</td>
-                    <td>{{ $item->foto}}</td>
+                    <td><img src="foto/{{ $item->foto}}" width="80px"></td>
                 </tr>
                 @endforeach
             </table>
         </div>
-        <!-- /.card-body --> 
+        <!-- /.card-body -->
       </div>
       <!-- /.card -->
     </div>
