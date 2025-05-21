@@ -40,7 +40,9 @@
                     <th>Tempat Lahir</th>
                     <th>Asal SMA</th>
                     <th>Prodi</th>
+                    <th>Fakultas</th>
                     <th>Foto</th>
+                    <th>Aksi</th>
                 </tr>
                 @foreach ($mahasiswa as $item)
                 <tr>
@@ -51,7 +53,17 @@
                     <td>{{ $item->tempat_lahir}}</td>
                     <td>{{ $item->asal_sma}}</td>
                     <td>{{ $item->prodi->nama}}</td>
+                    <td>{{ $item->prodi->fakultas->nama}}</td>
                     <td><img src="foto/{{ $item->foto}}" width="80px"></td>
+                    <td>
+                        <a href="{{ route('mahasiswa.show', $item->id) }}" class="btn btn-info">Show</a>
+                        <a href="{{ route('mahasiswa.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </table>
