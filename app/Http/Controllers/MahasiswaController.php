@@ -97,9 +97,9 @@ class MahasiswaController extends Controller
         $mahasiswa->delete(); // hapus data mahasiswa
         // jika ada foto, hapus juga file fotonya
         if ($mahasiswa->foto) {
-            $filePath = public_path('foto/' . $mahasiswa->foto);
-            if (file_exists($filePath)) {
-                unlink($filePath); // hapus file foto
+            $fotoPath = public_path('foto/' . $mahasiswa->foto);
+            if (file_exists($fotoPath)) {
+                unlink($fotoPath); // hapus file foto
             }
         }
         // redirect ke route mahasiswa.index
