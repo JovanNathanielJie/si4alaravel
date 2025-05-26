@@ -818,7 +818,7 @@
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    
+
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
@@ -842,6 +842,16 @@
             });
     });
 </script>
+
+@session('success')
+<script type="text/javascript">
+    swal({
+        title: "Good job!",
+        text: "{{ session('success') }}",
+        icon: "success"
+    });
+</script>
+@endsession
     <!--end::Script-->
   </body>
   <!--end::Body-->
