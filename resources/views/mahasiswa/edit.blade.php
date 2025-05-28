@@ -62,7 +62,7 @@
                             <select class="form-control" name="prodi_id">
                                 <option value="">--Pilih Prodi--</option>
                                 @foreach ($prodi as $item)
-                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                <option value="{{ $item->id }}" {{ old('prodi_id') == $item->id ? 'selected' : ($mahasiswa->prodi_id == $item->id ? 'selected' : null)}}>{{ $item->nama }}</option>
                                 @endforeach </select>
                                   @error('prodi_id')
                                   <div class="text-danger">{{ $message }}</div>
