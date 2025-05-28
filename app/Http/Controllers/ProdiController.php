@@ -64,7 +64,9 @@ class ProdiController extends Controller
      */
     public function edit(Prodi $prodi)
     {
-        //
+        //dd($prodi);
+        $fakultas = Fakultas::all(); // ambil semua data fakultas
+        return view('prodi.edit', compact('prodi', 'fakultas')); // mengirim data prodi dan fakultas ke view edit
     }
 
     /**
