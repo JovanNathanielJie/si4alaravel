@@ -77,7 +77,9 @@ Highcharts.chart('container', {
             'Source: Universitas MDP 2025'
     },
     xAxis: {
-        categories: ['Sistem Informasi', 'Informatika'],
+        categories: [@foreach ($mahasiswaprodi as $item)
+            '{{ $item->nama }}',
+        @endforeach],
         crosshair: true,
         accessibility: {
             description: 'Program Studi'
@@ -101,7 +103,11 @@ Highcharts.chart('container', {
     series: [
         {
             name: 'Mahasiswa',
-            data: [500, 400]
+            data: [
+                @foreach ($mahasiswaprodi as $item)
+                    {{ $item->jumlah_mahasiswa }},
+                @endforeach
+            ]
         }
     ]
 });
