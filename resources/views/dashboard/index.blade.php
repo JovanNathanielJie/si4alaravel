@@ -11,6 +11,10 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
         <div id="genderChart" style="height: 400px; margin-top: 50px;"></div>
+        <div id="matkulPerProdiChart" style="height: 400px; margin-top: 50px;"></div>
+        <div id="jadwalPerDosenChart" style="height: 400px; margin-top: 50px;"></div>
+        <div id="prodiPerFakultasChart" style="height: 400px; margin-top: 50px;"></div>
+
 </figure>
 <style>
 .highcharts-figure,
@@ -154,6 +158,117 @@ Highcharts.chart('genderChart', {
     }]
 });
 
+Highcharts.chart('prodiPerFakultasChart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Jumlah Program Studi per Fakultas'
+    },
+    xAxis: {
+        categories: [
+            @foreach ($prodiPerFakultas as $item)
+                '{{ $item->fakultas }}',
+            @endforeach
+        ],
+        title: {
+            text: 'Fakultas'
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Jumlah Prodi'
+        },
+        allowDecimals: false
+    },
+    tooltip: {
+        valueSuffix: ' Prodi'
+    },
+    series: [{
+        name: 'Program Studi',
+        data: [
+            @foreach ($prodiPerFakultas as $item)
+                {{ $item->jumlah_prodi }},
+            @endforeach
+        ]
+    }]
+});
+
+
+Highcharts.chart('matkulPerProdiChart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Jumlah Mata Kuliah per Program Studi'
+    },
+    xAxis: {
+        categories: [
+            @foreach ($matkulPerProdi as $item)
+                '{{ $item->nama }}',
+            @endforeach
+        ],
+        title: {
+            text: 'Program Studi'
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Jumlah Mata Kuliah'
+        },
+        allowDecimals: false
+    },
+    tooltip: {
+        valueSuffix: ' Mata Kuliah'
+    },
+    series: [{
+        name: 'Mata Kuliah',
+        data: [
+            @foreach ($matkulPerProdi as $item)
+                {{ $item->jumlah_matkul }},
+            @endforeach
+        ]
+    }]
+});
+
+Highcharts.chart('jadwalPerDosenChart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Jumlah Jadwal yang Dimiliki Setiap Dosen'
+    },
+    xAxis: {
+        categories: [
+            @foreach ($jadwalPerDosen as $dosen)
+                '{{ $dosen->name }}',
+            @endforeach
+        ],
+        title: {
+            text: 'Dosen'
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Jumlah Jadwal'
+        },
+        allowDecimals: false
+    },
+    tooltip: {
+        valueSuffix: ' Jadwal'
+    },
+    series: [{
+        name: 'Jadwal',
+        data: [
+            @foreach ($jadwalPerDosen as $dosen)
+                {{ $dosen->jumlah_jadwal }},
+            @endforeach
+        ]
+    }]
+});
 
 </script>
 @endsection
