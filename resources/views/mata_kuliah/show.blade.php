@@ -43,6 +43,10 @@
                     <th>Prodi</th>
                     <td>{{ $mataKuliah->prodi->nama}}</td>
                 </tr>
+                <tr>
+                    <th>Fakultas</th>
+                    <td>{{ $mataKuliah->prodi->fakultas->nama}}</td>
+                </tr>
             </table>
         </div>
       </div>
