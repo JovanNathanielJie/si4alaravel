@@ -33,11 +33,13 @@
           <a href="{{ route('sesi.create')}}" class="btn btn-primary"> Tambah </a>
             <br><br><table class="table table-bordered table-striped">
                 <tr>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($sesi as $item)
                 <tr>
+                    <td>{{ $item->id }}</td>
                     <td>{{ $item->nama}}</td>
                     <td>
                         <a href="{{ route('sesi.show', $item->id) }}" class="btn btn-info">Show</a>
