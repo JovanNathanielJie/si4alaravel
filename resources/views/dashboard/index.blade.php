@@ -8,20 +8,88 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<figure class="highcharts-figure">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Jumlah Mahasiswa Berdasarkan Program Studi
+                </div>
+                <div class="card-body">
+                    <div id="container" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Statistik Jenis Kelamin Mahasiswa
+                </div>
+                <div class="card-body">
+                    <div id="genderChart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    Jumlah Mata Kuliah per Program Studi
+                </div>
+                <div class="card-body">
+                    <div id="matkulPerProdiChart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-white">
+                    Jumlah Jadwal yang Dimiliki Setiap Dosen
+                </div>
+                <div class="card-body">
+                    <div id="jadwalPerDosenChart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-danger text-white">
+                    Jumlah Program Studi per Fakultas
+                </div>
+                <div class="card-body">
+                    <div id="prodiPerFakultasChart" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <figure class="highcharts-figure">
     <div id="container"></div>
         <div id="genderChart" style="height: 400px; margin-top: 50px;"></div>
         <div id="matkulPerProdiChart" style="height: 400px; margin-top: 50px;"></div>
         <div id="jadwalPerDosenChart" style="height: 400px; margin-top: 50px;"></div>
         <div id="prodiPerFakultasChart" style="height: 400px; margin-top: 50px;"></div>
 
-</figure>
+</figure> -->
 <style>
 .highcharts-figure,
 .highcharts-data-table table {
     min-width: 310px;
     max-width: 800px;
     margin: 1em auto;
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    overflow-x: auto;
 }
 
 #container {
