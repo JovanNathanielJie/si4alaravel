@@ -10,6 +10,7 @@
 
 <figure class="highcharts-figure">
     <div id="container"></div>
+        <div id="genderChart" style="height: 400px; margin-top: 50px;"></div>
 </figure>
 <style>
 .highcharts-figure,
@@ -111,6 +112,48 @@ Highcharts.chart('container', {
         }
     ]
 });
+
+Highcharts.chart('genderChart', {
+    chart: {
+        type: 'pie'
+    },
+    title: {
+        text: 'Statistik Jenis Kelamin Mahasiswa'
+    },
+    subtitle: {
+        text: 'Source: Universitas MDP 2025'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.y} Mahasiswa</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: ' Mahasiswa'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: [{
+        name: 'Jumlah',
+        colorByPoint: true,
+        data: [{
+            name: 'Laki-laki',
+            y: {{ $jumlahLaki }}
+        }, {
+            name: 'Perempuan',
+            y: {{ $jumlahPerempuan }}
+        }]
+    }]
+});
+
 
 </script>
 @endsection
