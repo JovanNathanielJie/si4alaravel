@@ -294,7 +294,7 @@
               <li class="nav-item">
                 <a class='nav-link' href='{{ url('prodi')}}'>
                   <i class="nav-icon bi bi-palette"></i>
-                  <p>Prodi</p>
+                  <p>Program Studi</p>
                 </a>
               </li>
               <li class="nav-item">
