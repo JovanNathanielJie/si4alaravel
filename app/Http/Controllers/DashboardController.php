@@ -40,11 +40,11 @@ class DashboardController extends Controller
 
          // Query jumlah jadwal per dosen
         $jadwalPerDosen = DB::select('
-            SELECT users.name, COUNT(jadwal.id) AS jumlah_jadwal
-            FROM users
-            LEFT JOIN jadwal ON users.id = jadwal.dosen_id
-            GROUP BY users.name
-        ');
+        SELECT users.name, COUNT(jadwal.id) AS jumlah_jadwal
+        FROM users
+        LEFT JOIN jadwal ON users.id = jadwal.dosen_id
+        WHERE users.role = "dosen"
+        GROUP BY users.name');
 
         // Kirim semua data ke view
         return view('dashboard.index', compact('mahasiswaprodi',
