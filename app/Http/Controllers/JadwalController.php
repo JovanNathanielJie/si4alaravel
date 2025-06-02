@@ -28,7 +28,7 @@ class JadwalController extends Controller
     {
         $sesi = Sesi::all(); // ambil semua data sesi
         $mataKuliah = MataKuliah::all(); // ambil semua data mata kuliah
-        $dosen = User::all(); // ambil semua dosen
+        $dosen = User::where('role', 'dosen')->get(); // ambil semua dosen dengan role 'dosen'
         return view('jadwal.create', compact('sesi', 'mataKuliah', 'dosen'));
     }
 
@@ -69,7 +69,7 @@ class JadwalController extends Controller
         // dd($jadwal);
         $sesi = Sesi::all(); // ambil semua data sesi
         $mataKuliah = MataKuliah::all(); // ambil semua data mata kuliah
-        $dosen = User::all(); // Ambil semua user dulu
+        $dosen = User::where('role', 'dosen')->get(); // ambil semua dosen dengan role 'dosen'
         return view('jadwal.edit', compact('jadwal', 'sesi', 'mataKuliah', 'dosen'));
     }
 
