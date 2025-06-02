@@ -32,13 +32,13 @@
         <div class="card-body">
           <a href="{{ route('sesi.create')}}" class="btn btn-primary"> Tambah </a>
             <br><br><table class="table table-bordered table-striped">
-                <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Nama</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($sesi as $item)
-                <tr>
+                <tr class="text-center">
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->nama}}</td>
                     <td>

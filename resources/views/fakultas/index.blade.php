@@ -32,7 +32,7 @@
         <div class="card-body">
           <a href="{{ route('fakultas.create')}}" class="btn btn-primary"> Tambah </a>
             <br><br><table class="table table-bordered table-striped">
-                <tr>
+                <tr class="text-center">
                     <th>Nama</th>
                     <th>Singkatan</th>
                     <th>Dekan</th>
@@ -41,7 +41,7 @@
                 </tr>
 
                 @foreach ($fakultas as $item)
-                <tr>
+                <tr class="text-center">
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->singkatan }}</td>
                     <td>{{ $item->dekan }}</td>
