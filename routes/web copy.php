@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\MahasiswaController;
@@ -14,10 +13,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::get('/profil', function () {
+    return view('profil');
 });
 
 Route::resource('/fakultas', FakultasController::class);
@@ -26,6 +23,4 @@ Route::resource('/mahasiswa', MahasiswaController::class); // menambahkan route 
 Route::resource('/sesi', SesiController::class); // menambahkan route resource sesi
 Route::resource('/mata_kuliah', MataKuliahController::class); // menambahkan route resource mata kuliah
 Route::resource('/jadwal', JadwalController::class); // menambahkan route resource jadwal
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); // menambahkan route dashboard
-
-require __DIR__.'/auth.php';
+Route::get('/dashboard', [DashboardController::class, 'index']); // menambahkan route dashboard
