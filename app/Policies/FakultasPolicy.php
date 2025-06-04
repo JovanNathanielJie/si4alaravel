@@ -39,7 +39,7 @@ class FakultasPolicy
      */
     public function update(User $user, Fakultas $fakultas): bool
     {
-        return false;
+        return $user->role === 'admin'; //Only allow users with 'admin' role to update Fakultas
     }
 
     /**
@@ -47,7 +47,7 @@ class FakultasPolicy
      */
     public function delete(User $user, Fakultas $fakultas): bool
     {
-        return false;
+        return $user->role === 'admin'; //Only allow users with 'admin' role to delete Fakultas 
     }
 
     /**

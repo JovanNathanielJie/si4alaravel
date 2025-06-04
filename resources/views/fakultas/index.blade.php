@@ -50,7 +50,10 @@
                     <td>{{ $item->wakil_dekan }}</td>
                     <td>
                         <a href="{{ route('fakultas.show', $item->id) }}" class="btn btn-info">Show</a>
+                        @can('update', $item)
                         <a href="{{ route('fakultas.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                        @endcan
+                        @can('delete', $item)
                         <form action="{{ route('fakultas.destroy', $item->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
@@ -58,6 +61,7 @@
                             data-toggle="tooltip" title='Delete'
                             data-nama='{{ $item->nama }}'>Delete</button>
                         </form>
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
