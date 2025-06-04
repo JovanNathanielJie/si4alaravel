@@ -44,6 +44,84 @@
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href=" {{ asset('css/adminlte.css')}}" />
     <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::Google Fonts (Inter)-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <!--end::Google Fonts-->
+    <style>
+      body,
+      .app-main {
+        font-family: 'Source Sans 3', Arial, sans-serif !important;
+        background: linear-gradient(135deg, #f4f8fb 0%, #e9f1fa 100%) !important;
+        min-height: 100vh;
+      }
+      .app-header.navbar {
+        background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%) !important;
+        color: #2d3a4a !important;
+        font-family: 'Inter', 'Source Sans 3', Arial, sans-serif !important;
+      }
+      .app-header.navbar .nav-link,
+      .app-header.navbar .navbar-brand,
+      .app-header.navbar .navbar-nav > .nav-item > .nav-link,
+      .app-header.navbar .dropdown-menu,
+      .app-header.navbar .navbar-badge {
+        font-family: 'Inter', 'Source Sans 3', Arial, sans-serif !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em;
+      }
+      /* Nama user di pojok kanan atas header: font normal, tidak bold, sama seperti body */
+      .app-header.navbar .user-menu .nav-link .d-none.d-md-inline {
+        font-family: 'Source Sans 3', Arial, sans-serif !important;
+        font-weight: 400 !important;
+        letter-spacing: normal;
+      }
+      .user-header p,
+      .user-header p small {
+        font-weight: 400 !important;
+      }
+      .app-sidebar.bg-body-secondary {
+        background: #f8fafc !important;
+        color: #2d3a4a !important;
+      }
+      .app-sidebar .nav-link,
+      .app-sidebar .sidebar-brand {
+        color: #2d3a4a !important;
+      }
+      .app-sidebar .nav-link.active,
+      .app-sidebar .nav-link:hover {
+        background: #e3eefd !important;
+        color: #3b5998 !important;
+        border-radius: 8px;
+      }
+      .sidebar-brand img {
+        max-height: 48px;
+      }
+      .brand-text {
+        color: #3b5998 !important;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      .btn-primary {
+        background: #3b5998 !important;
+        border: none;
+      }
+      .card {
+        background: rgba(255,255,255,0.97);
+        border-radius: 1rem;
+        box-shadow: 0 2px 16px 0 rgba(60,72,88,0.07);
+      }
+      .table th, .table td {
+        vertical-align: middle;
+      }
+      .sidebar-brand {
+  border-bottom: 2px solid #e3eefd !important; /* warna biru muda lembut */
+  box-shadow: none !important;
+  margin-bottom: 0.5rem;
+}
+.sidebar-brand .brand-image {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+    </style>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -266,13 +344,17 @@
           <a class='brand-link' href='/dist/pages/'>
             <!--begin::Brand Image-->
             <img
-              src="{{asset('assets/img/AdminLTELogo.png')}}"
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
+  src="{{ asset('foto/umdplogo.png') }}"
+  alt="UMDP Logo"
+  class="brand-image opacity-75 shadow"
+  style="max-height:40px; background: transparent;"
+/>
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
+            <span class="brand-text fw-bold"
+      style="font-family: 'Source Sans 3', Arial, sans-serif; font-weight:700; font-size:1.2rem; letter-spacing:0px; color:#3b5998; margin-left:8px;">
+    UMDP Portal
+</span>
             <!--end::Brand Text-->
           </a>
           <!--end::Brand Link-->
@@ -371,16 +453,12 @@
       <!--end::App Main-->
       <!--begin::Footer-->
       <footer class="app-footer">
-        <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">Anything you want</div>
-        <!--end::To the end-->
-        <!--begin::Copyright-->
+        <div class="float-end d-none d-sm-inline"></div>
         <strong>
-          Copyright &copy; 2014-2025&nbsp;
-          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+          Copyright &copy; 2025&nbsp;
+          Universitas MDP.
         </strong>
         All rights reserved.
-        <!--end::Copyright-->
       </footer>
       <!--end::Footer-->
     </div>
