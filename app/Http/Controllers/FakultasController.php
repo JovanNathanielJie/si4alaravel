@@ -31,6 +31,10 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        // cek apakah user memiliki izin untuk membuat fakultas
+        if($request->user()->cannot('create', Fakultas::class)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'nama' => 'required|unique:fakultas',
