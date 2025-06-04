@@ -37,6 +37,10 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
+        // cek apakah user memiliki izin untuk membuat jadwal
+        if ($request->user()->cannot('create', Jadwal::class)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'tahun_akademik' => 'required',
@@ -78,6 +82,10 @@ class JadwalController extends Controller
      */
     public function update(Request $request, Jadwal $jadwal)
     {
+        // cek apakah user memiliki izin untuk mengupdate jadwal
+        if ($request->user()->cannot('update', $jadwal)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'tahun_akademik' => 'required',
@@ -96,11 +104,15 @@ class JadwalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jadwal $jadwal)
+    public function destroy(Request $request, Jadwal $jadwal)
     {
         // Temukan jadwal berdasarkan ID
         $jadwal = Jadwal::findOrFail($jadwal->id);
         // dd($jadwal);
+        // cek apakah user memiliki izin untuk menghapus jadwal
+        if ($request->user()->cannot('delete', $jadwal)) {
+            abort(403, 'Unauthorized action.');
+        }
         $jadwal->delete();
         // redirect ke route jadwal.index
         return redirect()->route('jadwal.index')->with('success', 'Jadwal berhasil dihapus.');

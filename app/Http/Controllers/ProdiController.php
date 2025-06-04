@@ -33,6 +33,10 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
+        // cek apakah user memiliki izin untuk membuat prodi
+        if ($request->user()->cannot('create', Prodi::class)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'nama' => 'required|unique:prodi',
@@ -74,6 +78,10 @@ class ProdiController extends Controller
      */
     public function update(Request $request, Prodi $prodi)
     {
+        // cek apakah user memiliki izin untuk mengupdate prodi
+        if ($request->user()->cannot('update', $prodi)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'nama' => 'required',
@@ -93,10 +101,14 @@ class ProdiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Prodi $prodi)
+    public function destroy(Request $request, Prodi $prodi)
     {
         // Temukan data prodi berdasarkan ID
         $prodi = Prodi::findOrFail($prodi->id);
+         // cek apakah user memiliki izin untuk menghapus prodi
+        if ($request->user()->cannot('delete', $prodi)) {
+            abort(403, 'Unauthorized action.');
+        }
         // dd($prodi);
         // Hapus data prodi
         $prodi->delete();

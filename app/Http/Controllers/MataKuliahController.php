@@ -33,6 +33,10 @@ class MataKuliahController extends Controller
      */
     public function store(Request $request)
     {
+        // cek apakah user memiliki izin untuk membuat mata kuliah
+        if ($request->user()->cannot('create', MataKuliah::class)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'kode_mk' => 'required|unique:mata_kuliah',
@@ -71,6 +75,10 @@ class MataKuliahController extends Controller
      */
     public function update(Request $request, MataKuliah $mataKuliah)
     {
+        // cek apakah user memiliki izin untuk mengupdate mata kuliah
+        if ($request->user()->cannot('update', $mataKuliah)) {
+            abort(403, 'Unauthorized action.');
+        }
         //validasi input
         $input = $request->validate([
             'kode_mk' => 'required',
@@ -86,11 +94,15 @@ class MataKuliahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(MataKuliah $mataKuliah)
+    public function destroy(Request $request, MataKuliah $mataKuliah)
     {
         // Temukan data prodi berdasarkan ID
         $mataKuliah = MataKuliah::findOrFail($mataKuliah->id);
         // dd($mataKuliah);
+        // cek apakah user memiliki izin untuk menghapus mata kuliah
+        if ($request->user()->cannot('delete', $mataKuliah)) {
+            abort(403, 'Unauthorized action.');
+        }
         // hapus data mata kuliah
         $mataKuliah->delete();
         // redirect ke route mataKuliah.index

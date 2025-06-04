@@ -30,10 +30,7 @@
           </div>
         </div>
         <div class="card-body">
-          @can('create', App\Models\Fakultas::class)
-          <a href="{{ route('fakultas.create')}}" class="btn btn-primary"> Tambah </a>
-          @endcan
-            <br><br><table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
                 <tr class="text-center">
                     <th>Nama</th>
                     <th>Singkatan</th>
@@ -66,6 +63,11 @@
                 </tr>
                 @endforeach
             </table>
+            @can('create', App\Models\Fakultas::class)
+            <div class="mt-3 text-end">
+                <a href="{{ route('fakultas.create')}}" class="btn btn-primary">Tambah</a>
+            </div>
+            @endcan
         </div>
         <!-- /.card-body -->
       </div>

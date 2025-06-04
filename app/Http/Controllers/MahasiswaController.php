@@ -33,6 +33,10 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        // cek apakah user memiliki izin untuk membuat mahasiswa
+        if ($request->user()->cannot('create', Mahasiswa::class)) {
+            abort(403, 'Unauthorized action.');
+        }
         // validasi input
         $input = $request->validate([
             'npm' => 'required|unique:mahasiswa',
@@ -88,6 +92,10 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
+        // cek apakah user memiliki izin untuk mengedit mahasiswa
+        if ($request->user()->cannot('update', $mahasiswa)) {
+            abort(403, 'Unauthorized action.');
+        }
         //validasi input
         $input = $request->validate([
             'npm' => 'required',
@@ -129,8 +137,12 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy(Request $request, Mahasiswa $mahasiswa)
     {
+        // cek apakah user memiliki izin untuk mengedit mahasiswa
+        if ($request->user()->cannot('update', $mahasiswa)) {
+            abort(403, 'Unauthorized action.');
+        }
         $mahasiswa->delete(); // hapus data mahasiswa
         // jika ada foto, hapus juga file fotonya
         if ($mahasiswa->foto) {

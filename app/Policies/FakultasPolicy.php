@@ -29,7 +29,7 @@ class FakultasPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->role === 'admin'; //Only allow users with 'admin' role to create Fakultas
     }
@@ -47,7 +47,7 @@ class FakultasPolicy
      */
     public function delete(User $user, Fakultas $fakultas): bool
     {
-        return $user->role === 'admin'; //Only allow users with 'admin' role to delete Fakultas 
+        return $user->role === 'admin'; //Only allow users with 'admin' role to delete Fakultas
     }
 
     /**
