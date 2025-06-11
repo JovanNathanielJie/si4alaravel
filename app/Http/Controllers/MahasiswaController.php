@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class MahasiswaController extends Controller
 {
@@ -46,18 +47,46 @@ class MahasiswaController extends Controller
             'tempat_lahir' => 'required',
             'asal_sma' => 'required',
             'prodi_id' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:5120',
         ]);
+
         // jika ada file foto yang diupload
         if ($request->hasFile('foto')) {
             // ambil file foto
-            $file = $request->file('foto');
-            // buat nama file unik, agar nama foto tidak ada yang sama
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            // simpan file foto ke folder public/foto
-            $file->move(public_path('foto'), $filename);
-            // simpan nama file baru ke database
-            $input['foto'] = $filename;
+            try {
+                $file = $request->file('foto');
+                $response = Http::asMultipart()->post(
+                    'https://api.cloudinary.com/v1_1/' . env('CLOUDINARY_CLOUD_NAME') . '/image/upload',
+                    [
+                        [
+                            'name'     => 'file',
+                            'contents' => fopen($file->getRealPath(), 'r'),
+                            'filename' => $file->getClientOriginalName(),
+                        ],
+                        [
+                            'name'     => 'upload_preset',
+                            'contents' => env('CLOUDINARY_UPLOAD_PRESET'),
+                        ],
+                    ]
+                );
+
+                $result = $response->json();
+                if (isset($result['secure_url'])) {
+                    $input['foto'] = $result['secure_url'];
+                } else {
+                    return back()->withErrors(['foto' => 'Cloudinary upload error: ' . ($result['error']['message'] ?? 'Unknown error')]);
+                }
+            } catch (\Exception $e) {
+                return back()->withErrors(['foto' => 'Cloudinary error: ' . $e->getMessage()]);
+            }
+
+            // $file = $request->file('foto');
+            // // buat nama file unik, agar nama foto tidak ada yang sama
+            // $filename = time() . '.' . $file->getClientOriginalExtension();
+            // // simpan file foto ke folder public/foto
+            // $file->move(public_path('foto'), $filename);
+            // // simpan nama file baru ke database
+            // $input['foto'] = $filename;
         }
 
         // simpan data ke tabel mahasiswa
